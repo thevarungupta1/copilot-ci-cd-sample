@@ -27,3 +27,6 @@ jobs:
 
       - name: Run tests
         run: dotnet test --no-build --configuration Release --verbosity normal
+
+      - name: Build Docker image
+        run: docker build -t sampleapp:${{ github.sha }} .
