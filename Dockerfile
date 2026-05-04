@@ -18,8 +18,7 @@ WORKDIR /src
 
 # Copy project file first to maximize Docker layer caching for restore.
 COPY ["SampleApp.csproj", "./"]
-RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
-    dotnet restore "SampleApp.csproj" --nologo
+RUN dotnet restore "SampleApp.csproj" --nologo
 
 # Copy everything else and build.
 COPY . .
