@@ -22,7 +22,7 @@ RUN dotnet restore "SampleApp.csproj" --nologo
 
 # Copy everything else and build.
 COPY . .
-RUN dotnet build "SampleApp.csproj" -c Release -o /app/build --no-restore --nologo
+RUN dotnet build "SampleApp.csproj" -c Release --no-restore --nologo
 
 FROM build AS publish
 RUN dotnet publish "SampleApp.csproj" -c Release -o /app/publish --no-build --nologo /p:UseAppHost=false
